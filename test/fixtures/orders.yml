@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: orders
+#
+#  id             :integer          not null, primary key
+#  customer_id    :integer
+#  placed_at      :datetime
+#  total_amount   :decimal(, )
+#  created_at     :datetime
+#  updated_at     :datetime
+#  credit_card_id :integer
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+cheap:
+  customer: brandon
+  credit_card: brandon_visa
+  total_amount: 4
+
+expensive:
+  customer: brandon
+  credit_card: brandon_visa
+  total_amount: 42
+
+free:
+  customer: brandon
+  credit_card: brandon_visa
+  total_amount: 0

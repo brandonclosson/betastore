@@ -1,0 +1,18 @@
+# == Schema Information
+#
+# Table name: credit_cards
+#
+#  id              :integer          not null, primary key
+#  customer_id     :integer
+#  card_number     :string(255)
+#  expiration_date :string(255)
+#  created_at      :datetime
+#  updated_at      :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+brandon_visa:
+  customer: brandon
+  card_number: 4111111111111111
+  expiration_date: 01/<%= Time.now.year + 1 %>

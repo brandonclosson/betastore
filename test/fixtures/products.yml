@@ -1,0 +1,17 @@
+# == Schema Information
+#
+# Table name: products
+#
+#  id         :integer          not null, primary key
+#  name       :string(255)
+#  price      :decimal(, )
+#  created_at :datetime
+#  updated_at :datetime
+#  image_url  :string(255)
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+hat:
+  name: Hat
+  price: 9.99
