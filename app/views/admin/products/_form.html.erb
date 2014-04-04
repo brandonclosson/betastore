@@ -1,19 +1,19 @@
-<%= form_for [:admin, @product] do |f| %>
+<div class="row">
+  <div class="span4 offset4 form center">
+  
+    <%= form_for [:admin, @product] do |f| %>
 
-<ul>
-  <li>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  </li>
-  <li>
-  <%= f.label :price %>
-  <%= f.text_field :price %>
-  </li>
-  <%= f.label :image_url %>
-  <%= f.text_field :image_url %>
-  <li>
-  <%= f.submit %>
-  </li>
-</ul>
+      <%= f.label :name %>
+      <%= f.text_field :name %>
+      
+      <%= f.label :price %>
+      <%= f.text_field :price %>
 
-<% end %>
+      <%= f.label :image_url %>
+      <%= f.text_field :image_url %>
+      
+      <%= f.submit "Save", class: "btn btn-larg btn-primary" %>
+
+    <% end %>
+  </div>
+</div>

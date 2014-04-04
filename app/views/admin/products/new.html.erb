@@ -1,11 +1,5 @@
 <h1>New Product</h1>
 
-<% if @product.errors.present? %>
-  <ul id="error" style="color: red">
-    <% @product.errors.full_messages.each do |err| %>
-      <li><%= err %></li>
-    <% end %>
-  </ul>
-<% end %>
+<%= render 'shared/errors', object: @product %>
 
 <%= render 'form' %>
