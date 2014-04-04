@@ -1,3 +1,3 @@
-##Betastore by Brandon Closson
+##Betastore
 
-E-Commerce application written for Back End Web Development Course
+E-Commerce application written for Back End Web Development Course at Betamore
