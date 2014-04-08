@@ -15,6 +15,7 @@ gem 'annotate', ">=2.6.0"
 
 group :doc do
   gem 'sdoc', require: false
+  gem 'rails_12factor'
 end
 
 group :development do
