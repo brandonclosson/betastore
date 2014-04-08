@@ -1,19 +1,32 @@
-<div class="row">
-  <div class="span4 offset4 form center">
-  
-    <%= form_for [:admin, @product] do |f| %>
+<%= render 'shared/errors', object: @product %>
 
-      <%= f.label :name %>
-      <%= f.text_field :name %>
-      
-      <%= f.label :price %>
-      <%= f.text_field :price %>
+<%= form_for [:admin, @product], html: { class: 'form-horizontal', role: 'form'} do |f| %>
 
-      <%= f.label :image_url %>
-      <%= f.text_field :image_url %>
-      
-      <%= f.submit "Save", class: "btn btn-larg btn-primary" %>
-
-    <% end %>
+  <div class="form-group">
+    <%= f.label :name, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4">
+      <%= f.text_field :name, class: 'form-control' %>
+    </div>
   </div>
-</div>
+
+  <div class="form-group">
+    <%= f.label :price, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4">
+      <%= f.text_field :price, class: 'form-control' %>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :image_url, class: 'col-sm-2 control-label' %>
+    <div class="col-sm-4">
+      <%= f.text_field :image_url, class: 'form-control' %>
+    </div>
+  </div>
+  
+  <div class="form-group">
+    <div class="col-sm-offset-2 col-sm-4">
+      <%= f.submit "Save", class: 'btn btn-success' %>
+    </div>
+  </div>
+<% end %>
+ 
