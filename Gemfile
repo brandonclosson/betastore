@@ -3,6 +3,7 @@ ruby '2.1.1'
 
 gem 'annotate', ">=2.6.0"
 gem 'bcrypt', '~> 3.1.5'
+gem 'bugsnag'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'pg'
