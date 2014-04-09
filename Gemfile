@@ -1,23 +1,20 @@
 source 'https://rubygems.org'
 ruby '2.1.1'
 
+gem 'annotate', ">=2.6.0"
+gem 'bcrypt-ruby', '~> 3.1.5'
 gem 'coffee-rails', '~> 4.0.0'
-gem 'faker'
-gem 'jbuilder', '~> 1.2'
 gem 'jquery-rails'
 gem 'pg'
 gem 'progressbar', "~> 0.21.0"
+gem 'puma'
 gem 'rails', '4.0.3'
 gem 'sass-rails', '~> 4.0.0'
-gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
-gem 'annotate', ">=2.6.0"
-
-group :doc do
-  gem 'sdoc', require: false
-end
 
 group :development do
+  gem 'brakeman', require: false
+  gem 'faker'
   gem 'hirb'
 end
 
