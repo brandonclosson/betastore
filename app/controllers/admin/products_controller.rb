@@ -1,9 +1,15 @@
 class Admin::ProductsController < ApplicationController
 
+  before_action :require_login
+
   layout 'admin'
   
   def index
-    @products = Product.order('name')
+    if logged_in?
+      @products = Product.order('name').to_a
+    else
+      redirect_to admin_login_path, alert: 'Please log in to continue'
+    end
   end
   
   def show
@@ -50,8 +56,18 @@ class Admin::ProductsController < ApplicationController
 
   protected
 
+    def logged_in?
+      session[:user_id].present?
+    end
+
     def product_params
-      params.require(:product).permit!
+      params.require(:product).permit(:name, :email)
+    end
+
+    def require_login
+      unless logged_in?
+        redirect_to admin_login_path, danger: 'Please login to continue' 
+      end
     end
 
 end

@@ -13,4 +13,4 @@ Product.create!(name: 'Journal', price: 11.99, image_url: "/images/products/jour
 Product.create!(name: 'Shirt', price: 15.99, image_url: "/images/products/shirt.jpg")
 Product.create!(name: 'Sticker', price: 2.99, image_url: "/images/products/sticker.jpg")
 
-puts "hat categories: #{hat.categories.map(&:name)}"
+User.create!(email: "bclosson@gmail.com", password: "secretss")

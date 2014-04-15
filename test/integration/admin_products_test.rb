@@ -1,8 +1,8 @@
 require 'test_helper'
 
-class CreateProductTest < ActionDispatch::IntegrationTest
+class AdminProductsTest < ActionDispatch::IntegrationTest
   def test_manage
-    visit "/admin/products"
+    visit "/admin/products" 
 
     click_on "Create New"
     fill_in "Name", with: "Example Product"
