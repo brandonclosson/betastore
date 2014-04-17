@@ -7,7 +7,8 @@ class CustomersController < ApplicationController
     @customer = Customer.new(customer_params)
 
     if @customer.save
-      redirect_to root_path, notice: "Welcome #{@customer.first_name} #{@customer.last_name}"
+      CustomerMailer.welcome(@customer).deliver
+      redirect_to root_path, notice: "Welcome #{@customer.first_name} #{@customer.last_name}, check email for verification"
     else
       render 'new'
     end
