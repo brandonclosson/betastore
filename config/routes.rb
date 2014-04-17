@@ -1,7 +1,7 @@
 Betastore::Application.routes.draw do
   root :to => 'static_pages#welcome'
 
-  get '/signup'        => 'customers#new'
+  get '/signup'        => 'customers#new', as: 'signup'
   post '/signup'       => 'customers#create'
   get '/login'         => 'logins#new', as: 'login'
   post '/login'        => 'logins#create'
