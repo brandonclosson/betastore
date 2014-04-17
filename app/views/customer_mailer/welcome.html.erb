@@ -1,5 +1,5 @@
 <h1>Welcome, <%= @customer.first_name %></h1>
 <p>
   Click here to verify your account: 
-  <%= link_to "Verify", verify_customer_path(@token) %>
+  <%= link_to "Verify", verify_customer_url(@token) %>
 </p>
