@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140410225205) do
+ActiveRecord::Schema.define(version: 20140417222000) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,10 +40,13 @@ ActiveRecord::Schema.define(version: 20140410225205) do
   add_index "credit_cards", ["customer_id"], name: "index_credit_cards_on_customer_id", using: :btree
 
   create_table "customers", force: true do |t|
-    t.string   "name"
+    t.string   "first_name"
+    t.string   "last_name"
     t.string   "email"
+    t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.datetime "verified_at"
   end
 
   create_table "line_items", force: true do |t|

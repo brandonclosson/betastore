@@ -1,16 +1,19 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <title>Betastore</title>
-  <%= stylesheet_link_tag "application" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-  <%= render 'layouts/flash' %>
-  <div class="container">
-    <%= image_tag "logo.jpg", class: "center" %>
-    <%= yield %>
-  </div>
-</body>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <%= stylesheet_link_tag "application" %>
+    <%= csrf_meta_tags %>
+    <title>Betastore</title>
+  </head>
+  <body>
+    <div style="margin: 20px auto; text-align: center; vertical-align: middle">
+      <%= image_tag "logo.jpg", width: 600 %>
+      <%= render 'layouts/flash' %>
+      <%= yield %>
+    </div>
+    <%= javascript_include_tag "application" %>
+  </body>
 </html>

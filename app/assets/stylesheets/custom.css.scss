@@ -1,0 +1,56 @@
+.circle_buttons {
+  border: none;
+  margin: 0 auto;
+  width: 100px;
+  display: inline-block;
+}
+
+.circle_buttons:hover {
+  border: none;
+}
+
+.signup_button:after {
+  text-decoration: none;
+  content: "";
+  display: block;
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+  background: #FA9534;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  text-align: center;
+}
+
+.signup_button div {
+  float: left;
+  width: 100%;
+  padding-top: 50%;
+  line-height: 1em;
+  margin-top: -0.5em;
+  text-align: center;
+  color: white;
+}
+
+.login_button:after {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 0;
+  padding-bottom: 100%;
+  background: #92C55F;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+}
+
+.login_button div {
+  float: left;
+  width: 100%;
+  padding-top: 50%;
+  line-height: 1em;
+  margin-top: -0.5em;
+  text-align: center;
+  color: white;
+}
