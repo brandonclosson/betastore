@@ -1,4 +1,5 @@
 class CustomersController < ApplicationController
+
   def new
     @customer = Customer.new
   end
@@ -7,26 +8,29 @@ class CustomersController < ApplicationController
     @customer = Customer.new(customer_params)
 
     if @customer.save
-      CustomerMailer.welcome(@customer).deliver
-      redirect_to root_path, notice: "Welcome #{@customer.first_name} #{@customer.last_name}, check email for verification"
+      flash[:info] = "Welcome, #{@customer.first_name} #{@customer.last_name}. Check your email for account confirmation."
+      redirect_to root_path
     else
       render 'new'
     end
   end
 
   def verify
-    customer = Customer.verify(params[:token])
+    @customer = Customer.verify(params[:token])
 
-    if customer
-      redirect_to root_path, notice: "Your account is confirmed"
+    if @customer
+      sign_in @customer
+      flash[:success] = "Your account has been confirmed."
+      redirect_to root_path
     else
-      redirect_to root_path, alert: 'The verification link is invalid'
+      flash[:danger] = "The verification link is invalid."
+      redirect_to root_path
     end
   end
 
   protected
 
     def customer_params
-      params.require(:customer).permit(:first_name, :last_name, :email, :password)
+      params.require(:customer).permit(:first_name, :last_name, :email, :password, :password_confirmation)
     end
 end

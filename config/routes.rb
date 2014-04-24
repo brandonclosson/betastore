@@ -1,13 +1,18 @@
 Betastore::Application.routes.draw do
-  root :to => 'static_pages#welcome'
+  root :to => 'products#index'
 
+  get '/welcome' => 'static_pages#welcome'
+
+  resources :customers
   get '/signup'        => 'customers#new', as: 'signup'
   post '/signup'       => 'customers#create'
-  get '/login'         => 'logins#new', as: 'login'
-  post '/login'        => 'logins#create'
+
+  get '/login' => 'logins#new', as: 'login'
+  post '/login' => 'logins#create'
+  delete '/logout' => 'logins#destroy'
   get '/verify/:token' => 'customers#verify', as: 'verify_customer'
 
-  get '/products' => 'products#index'
+  resources :products
 
   namespace :admin do
     resources :products

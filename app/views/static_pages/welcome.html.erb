@@ -1,8 +1,16 @@
-<div>  
-  <%= link_to signup_path do %>
-    <div class="circle_buttons signup_button"><div>Sign In</div></div>
-  <% end %>
-  <%= link_to root_path do %>
-    <div class="circle_buttons login_button"><div>Log In</div></div>
-  <% end %>
+<div style="margin: 20px auto; text-align: center; vertical-align: middle">
+  <%= image_tag "logo.jpg", width: 600 %>
+  <%= render 'layouts/flash' %>
+  <div id="welcome_buttons">
+    <%= link_to signup_path, class: 'none' do %>
+      <div class="circle_buttons signup_button">
+        <div>Sign Up</div>
+      </div>
+    <% end %>
+    <%= link_to login_path do %>
+      <div class="circle_buttons login_button">
+        <div>Log In</div>
+      </div>
+    <% end %>
+  </div>
 </div>

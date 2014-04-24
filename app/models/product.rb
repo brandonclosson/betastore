@@ -16,4 +16,6 @@ class Product < ActiveRecord::Base
 
   validates_presence_of :name, :price
   validates :price, numericality: { greater_than: 0, allow_blank: true }
+
+  scope :search, -> (q) { where('name like ?', "%#{q}%") }
 end

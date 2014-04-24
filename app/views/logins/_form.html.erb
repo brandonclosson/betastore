@@ -1,0 +1,15 @@
+<%= form_for :login, url: login_path, html: { class: 'form-horizontal', role: 'form'} do |f| %>
+
+  <div class="control-group">
+    <%= f.text_field :email, class: 'span4', placeholder: 'Email' %>
+  </div>
+
+  <div class="control-group">
+    <%= f.password_field :password, class: 'span4', placeholder: 'Password' %>
+  </div>
+
+  <div class="control-group">
+    <%= f.submit "Sign In", class: 'btn btn-success' %>
+  </div>
+
+<% end %>
