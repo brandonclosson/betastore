@@ -15,6 +15,7 @@ class Customer < ActiveRecord::Base
   has_secure_password
   before_save { email.downcase! }
   before_create :create_remember_token
+  after_create :send_verification_email
   validates_presence_of :first_name, :last_name, :email,
                         :password, :password_confirmation
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-]+(?:\.[a-z\d\-]+)*\.[a-z]+\z/i

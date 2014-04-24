@@ -1,6 +1,6 @@
 <%= form_tag({}, method: 'get', role: 'form', class: 'form-inline') do %>
-  <div class="form-group">
-    <%= text_field_tag :q, params[:q], class: 'form-control' %>
+  <div class="form-group col-sm-3">
+    <%= text_field_tag :q, params[:q], class: 'form-control col-sm-2' %>
   </div>
   <button type="button" class="btn btn-large btn-primary">Search</button>
 <% end %>
