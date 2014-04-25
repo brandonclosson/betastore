@@ -4,8 +4,8 @@ class ProductsController < ApplicationController
     redirect_to welcome_path if !signed_in?
     @products = Product.order('name')
 
-    if params[:q].present?
-      @products = @products.search(params[:q])
+    for param in %i[search min_price max_price]
+      @products = @products.send(param, params[param]) if params[param].present?
     end
   end
 

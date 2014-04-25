@@ -1,16 +1,26 @@
 <%= form_tag({}, method: 'get', role: 'form', class: 'form-inline') do %>
-  <div class="form-group col-sm-3">
-    <%= text_field_tag :q, params[:q], class: 'form-control col-sm-2' %>
+  <div class="form-group">
+    <%= text_field_tag :search, params[:search], class: 'form-control' %>
   </div>
   <button type="button" class="btn btn-large btn-primary">Search</button>
+  <% unless params[:search].blank? %>
+    <%= link_to "Back", products_path, class: 'btn btn-large btn-danger' %>
+  <% end %>
 <% end %>
 
-<% for product in @products %>
-  <div class="col-sm-4">
-    <%= link_to product do %>
-      <%= image_tag product.image_url, width: 200 %>
-      <br/>
-      <%= product.name %>
-    <% end %>
-  </div>
+<% if @products.blank? %>
+  <p>
+  No products were found that match your search!
+  <%= link_to "Start Over", products_path %>
+  </p>
+<% else %>
+  <% for product in @products %>
+    <div class="col-sm-4">
+      <%= link_to product do %>
+        <%= image_tag product.image_url, width: 200 %>
+        <br/>
+        <%= product.name %>
+      <% end %>
+    </div>
+  <% end %>
 <% end %>
