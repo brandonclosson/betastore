@@ -1,7 +1,6 @@
 class ProductsController < ApplicationController
 
   def index
-    redirect_to welcome_path if !signed_in?
     @products = Product.order('name')
 
     for param in %i[search min_price max_price]

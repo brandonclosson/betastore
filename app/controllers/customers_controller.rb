@@ -15,6 +15,10 @@ class CustomersController < ApplicationController
     end
   end
 
+  def edit
+    @customer = Customer.find(params[:id])
+  end
+
   def verify
     @customer = Customer.verify(params[:token])
 

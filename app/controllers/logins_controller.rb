@@ -8,11 +8,16 @@ class LoginsController < ApplicationController
     customer = Customer.find_by(email: params[:login][:email].downcase)
     if customer && customer.authenticate(params[:login][:password])
       sign_in customer
-      flash[:info] = "Welcome back to Betastore, #{customer.first_name}."
+      flash.now[:info] = "Welcome back to Betastore, #{customer.first_name}."
       redirect_to root_path
     else
       flash.now[:error] = "Invalid email/password combination!"
       render 'new'
     end
+  end
+
+  def destroy
+    cookies.delete(:remember_token)
+    redirect_to root_path
   end
 end

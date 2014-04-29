@@ -1,26 +1,62 @@
-<%= form_tag({}, method: 'get', role: 'form', class: 'form-inline') do %>
-  <div class="form-group">
-    <%= text_field_tag :search, params[:search], class: 'form-control' %>
-  </div>
-  <button type="button" class="btn btn-large btn-primary">Search</button>
-  <% unless params[:search].blank? %>
-    <%= link_to "Back", products_path, class: 'btn btn-large btn-danger' %>
-  <% end %>
-<% end %>
-
-<% if @products.blank? %>
-  <p>
-  No products were found that match your search!
-  <%= link_to "Start Over", products_path %>
-  </p>
-<% else %>
-  <% for product in @products %>
-    <div class="col-sm-4">
-      <%= link_to product do %>
-        <%= image_tag product.image_url, width: 200 %>
-        <br/>
-        <%= product.name %>
+<div class="container col-md-8">
+  <div class="row">
+    <div class="col-sm-4 pull-right">
+      <%= form_tag({}, method: 'get', role: 'form', class: 'row form-inline') do %>
+        <div class="form-group">
+          <%= text_field_tag :search, params[:search], class: 'form-control' %>
+        </div>
+        <button type="button" class="btn btn-default">
+          <span class="glyphicon glyphicon-search"></span>
+        </button>
+        <% unless params[:search].blank? %>
+          <%= link_to "Back", products_path, class: 'btn btn-danger' %>
+        <% end %>
       <% end %>
     </div>
-  <% end %>
-<% end %>
+  </div>
+
+  <div class="row top-buffer">
+    <% if @products.blank? %>
+      <div class="col-sm-12 text-center">
+        <p>
+        No products were found that match your search!
+        <%= link_to "Start Over", products_path %>
+        </p>
+      </div>
+    <% else %>
+      <% for product in @products %>
+        <div class="col-sm-4 text-center product">
+          <%= link_to product do %>
+            <%= image_tag product.image_url, width: 100 %><br />
+            <h3><%= product.name %></h3>
+          <% end %>
+          <p>
+            $<%= product.price %>
+            <%= button_to "Add to Cart", '#TODO', class: 'btn btn-large btn-primary' %>
+          </p>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+<div class="container col-md-4 text-center">
+
+  <%= image_tag "logo.jpg", width: 333 %>
+  <div class="panel">
+    <div class="panel-heading betayellow">
+      <h5>Shopping Cart</h5>
+    </div>
+    <div class="panel-body">
+      There are no items in your cart!
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+

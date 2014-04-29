@@ -1,2 +1,8 @@
-<h2><%= @product.name %></h2>
-<%= image_tag @product.image_url %>
+<div class="container col-md-7 col-md-offset-1">
+  <div class="row">
+    <%= image_tag @product.image_url %>
+  </div>
+</div>
+<div class="container col-md-4">
+  <h1><%= @product.name %></h1>
+</div>

@@ -1,3 +1,9 @@
+@font-face {
+  font-family: 'Glyphicons Halflings';
+  src: url('../assets/fonts/png/glyphicons-halflings-regular.eot');
+  src: url('../../assets/fonts/png/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../assets/fonts/png/glyphicons-halflings-regular.woff') format('woff'), url('../assets/fonts/png/glyphicons-halflings-regular.ttf') format('truetype'), url('../assets/fonts/png/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
+}
+
 .circle_buttons {
   border: none;
   margin: 0 auto;
@@ -75,4 +81,45 @@
 
 #welcome_buttons a {
   text-decoration: none;
+}
+
+.top-buffer {
+  padding-top: 45px;
+}
+
+.product {
+  color: black;
+}
+
+.redbg {
+  border-radius: 0;
+  background-color: #FF4D4D;
+  border-style: solid;
+  border-width: 0 0 3px 0;
+  border-color: #444444;
+}
+
+.navbar-colors > li > a:link {
+  color: #FFFFFF;
+}
+
+.navbar-colors > li > a:hover {
+  color: #DDDDDD;
+}
+
+.navbar-colors > li > a:visited {
+  color: #FFFFFF;
+}
+
+.navbar-colors > li > a:active {
+  color: #DDDDDD;
+}
+
+.betayellow {
+  background-color: #FCD844;
+  opacity: 0.6;
+}
+
+.betayellow > h5 {
+  color: black;
 }
