@@ -7,8 +7,19 @@
     </div>
     <ul class="nav navbar-nav navbar-right navbar-colors">
       <% if signed_in? %>
-        <li><%= link_to current_customer.full_name, edit_customer_path(current_customer) %></li>
-        <li><%= link_to "Log Out", logout_path, method: 'delete' %></li>
+        <li>
+          <%= link_to edit_customer_path(current_customer) do %>
+            <span class="glyphicon glyphicon-user"></span>
+            <%= current_customer.full_name %>
+          <% end %>
+        </li>
+        <li>
+          <%= link_to cart_path do %>
+            <span class="glyphicon glyphicon-shopping-cart"></span>
+            Your Cart
+          <% end %>
+        </li>
+        <li><%= link_to "Log Out", logout_path, method: "delete" %></li>
       <% else %>
         <li><%= link_to "Log In", login_path %></li>
         <li><%= link_to "Sign Up", signup_path %></li>
