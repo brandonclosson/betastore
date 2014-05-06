@@ -1,5 +1,7 @@
 class LoginsController < ApplicationController
 
+  skip_before_action :require_login
+
   def new
     redirect_to root_path if signed_in?
   end
@@ -11,13 +13,13 @@ class LoginsController < ApplicationController
       flash.now[:info] = "Welcome back to Betastore, #{customer.first_name}."
       redirect_to root_path
     else
-      flash.now[:error] = "Invalid email/password combination!"
+      flash.now[:danger] = "Invalid email/password combination!"
       render 'new'
     end
   end
 
   def destroy
-    cookies.delete(:remember_token)
-    redirect_to root_path
+    sign_out
+    redirect_to welcome_path
   end
 end

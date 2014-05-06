@@ -9,6 +9,8 @@ Betastore::Application.routes.draw do
 
   get '/login' => 'logins#new', as: 'login'
   post '/login' => 'logins#create'
+  get    '/login' => 'logins#new',     as: 'login'
+  post   '/login' => 'logins#create'
   delete '/logout' => 'logins#destroy', as: 'logout'
   get '/verify/:token' => 'customers#verify', as: 'verify_customer'
 
