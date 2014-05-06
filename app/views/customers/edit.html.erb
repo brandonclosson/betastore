@@ -1,1 +1,21 @@
-<h1><%= @customer.full_name %></h1>
+<div class="container col-md-10 col-md-offset-1">
+  <div class="panel panel-info">
+    <div class="panel-heading text-center">
+      <h1>Edit Your Profile</h1>
+    </div>
+    <div class="panel-body edit-customer-form">
+      <%= form_for @customer, html: { class: 'form-horizontal', role: 'form'} do |f| %>
+        <div class="container col-md-6 text-center">
+          <h3>Change Name and Password</h3>
+          <%= render 'update_form', f: f %>
+        </div>
+        <div class="container well col-md-6">
+          <%= render 'cc_form', f: f %>
+        </div>
+        <div class="control-group col-md-8 col-md-offset-2">
+          <%= f.submit "Update", class: 'btn btn-large btn-success' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

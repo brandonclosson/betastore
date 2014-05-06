@@ -1,0 +1,23 @@
+<h3>Credit Cards</h3>
+
+<% unless current_customer.credit_cards.count > 0 %>
+  <em>You don't have any credit cards saved...</em>
+<% else %>
+  <% current_customer.credit_cards.each do |cc| %>
+    <% unless cc === @cc %>
+      <ul class="list-unstyled">
+        <li>
+          <em><%= cc.last_four %></em> - <%= cc.expiration_date %><br />
+        </li>
+      </ul>
+    <% end %>
+  <% end %>
+<% end %>
+
+<h4>Add a new card</h4>
+<%= f.fields_for :credit_cards, @cc do |cc| %>
+  <div class="control-group form-inline">
+    <%= cc.text_field :card_number, placeholder: 'Card number:' %>
+    <%= cc.text_field :expiration_date, placeholder: 'Expires on: (mm/yyyy)' %>
+  </div>
+<% end %>
