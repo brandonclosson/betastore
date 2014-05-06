@@ -1,0 +1,28 @@
+<div class="row top-buffer">
+  <% if @products.blank? %>
+    <div class="col-sm-12 text-center">
+      <p>
+      No products were found that match your search!
+      <%= link_to "Start Over", products_path %>
+      </p>
+    </div>
+  <% else %>
+    <% for product in @products %>
+      <div class="col-sm-4 text-center product">
+        <%= link_to product do %>
+          <%= image_tag product.image_url, width: 100 %><br />
+          <h3><%= product.name %></h3>
+        <% end %>
+        <p>
+          $<%= product.price %>
+          <%= form_tag add_product_to_cart_path(product) do %>
+            <%= button_to cart_path, class: 'btn btn-large btn-add' do %>
+              <span class="glyphicon glyphicon-shopping-cart"></span>
+              Add to Cart
+            <% end %>
+          <% end %>
+        </p>
+      </div>
+    <% end %>
+  <% end %>
+</div>

@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-md-11">
+    <%= form_tag({}, method: 'get', role: 'form', class: 'row form-inline pull-right') do %>
+      <div class="form-group">
+        <%= text_field_tag :min_price, params[:min_price], class: 'form-control', placeholder: 'By Min Price...' %>
+        <%= text_field_tag :max_price, params[:max_price], class: 'form-control', placeholder: 'By Max Price...' %>
+        <%= text_field_tag :search, params[:search], class: 'form-control', placeholder: 'By Name...' %>
+      </div>
+      <button type="submit" class="btn btn-default">
+        <span class="glyphicon glyphicon-search"></span>
+      </button>
+      <% unless [:search, :min_price, :max_price].all? { |p| params[p].blank? } %>
+        <%= link_to "Clear", products_path, class: 'btn btn-danger' %>
+      <% end %>
+    <% end %>
+  </div>
+</div>

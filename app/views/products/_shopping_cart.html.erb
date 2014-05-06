@@ -1,0 +1,49 @@
+<%= image_tag "logo.jpg", width: 266 %>
+<div class="panel betayellowborder">
+  <div class="panel-heading betayellow">
+    <h3>Cart</h3>
+  </div>
+  <div class="panel-body">
+    <% unless session[:cart].nil? || session[:cart].empty?%>
+      <table class="table table-hover table-bordered">
+        <thead>
+          <tr>
+            <th width="2"></th>
+            <th>Name</th>
+            <th width="5">Qty.</th>
+            <th width="100">Price</th>
+            <th width="100">Subtotal</th>
+          </tr>
+        </thead>
+        <tbody class='vertical-align-middle'>
+          <% for li in @order.line_items %>
+            <tr>
+              <td>
+                <%= form_tag remove_product_from_cart_path(li.product) do %>
+                  <%= button_to cart_path, class: 'btn btn-danger' do %>
+                    <span class="glyphicon glyphicon-trash"></span>
+                  <% end %>
+                <% end %>
+              </td>
+              <td><strong><%= li.product.name %></strong></td>
+              <td><input type="text" class="mini-input" value="<%= li.quantity %>" /></td>
+              <td><%= li.product.price %></td>
+              <td><%= li.subtotal %></td>
+            </tr>
+          <% end %>
+          <tr class='vertical-align-middle'>
+            <td></td>
+            <td colspan="2"></td>
+            <td><strong>Total: </strong></td>
+            <td><strong><%= @order.total_amount %></strong></td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="text-right">
+        <%= link_to "Review Cart", cart_path, class: 'btn btn-large btn-success' %>
+      </div>
+    <% else %>
+      <em>There are no items in your cart!</em>
+    <% end %>
+  </div>
+</div>
