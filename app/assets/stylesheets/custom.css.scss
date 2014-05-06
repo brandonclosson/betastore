@@ -1,9 +1,3 @@
-@font-face {
-  font-family: 'Glyphicons Halflings';
-  src: url('../assets/fonts/png/glyphicons-halflings-regular.eot');
-  src: url('../../assets/fonts/png/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('../assets/fonts/png/glyphicons-halflings-regular.woff') format('woff'), url('../assets/fonts/png/glyphicons-halflings-regular.ttf') format('truetype'), url('../assets/fonts/png/glyphicons-halflings-regular.svg#glyphicons-halflingsregular') format('svg');
-}
-
 .circle_buttons {
   border: none;
   margin: 0 auto;
@@ -96,7 +90,7 @@
   background-color: #FF4D4D;
   border-style: solid;
   border-width: 0 0 3px 0;
-  border-color: #444444;
+  border-color: #9C2F2F;
 }
 
 .navbar-colors > li > a:link {
@@ -115,11 +109,82 @@
   color: #DDDDDD;
 }
 
+.betayellowborder {
+  border: solid;
+  border-size: 4px;
+  border-color: #FCD844;
+}
+
 .betayellow {
   background-color: #FCD844;
   opacity: 0.6;
 }
 
-.betayellow > h5 {
+.panel > .betayellow > h3 {
   color: black;
+  padding: 0;
+  margin: 0;
+}
+
+.btn-add {
+  background-color: #FF4D4D;
+  color: white;
+  border: solid black 2px;
+}
+
+.product > a:link {
+  color: #85B559;
+}
+
+.border-inset:hover {
+  border-style: inset;
+}
+
+.edit-customer-form {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.edit-customer-form input {
+  border-style: solid;
+  border-color: #d9edf7;
+  border-radius: 5px;
+  moz-border-radius: 5px;
+  webkit-border-radius: 5px;
+  text-align: center;
+  width: 80%;
+  margin-bottom: 10px;
+}
+
+.edit-customer-form .btn {
+  background-color: #5cb85c;
+}
+
+.edit-customer-form .well input {
+  width: 100%;
+}
+
+.vertical-align-middle {
+  vertical-align: middle;
+}
+
+.vertical-align-middle > td {
+  vertical-align: middle !important;
+}
+
+.vertical-align-middle > tr > td {
+  vertical-align: middle !important;
+}
+
+.edit_cc input {
+  width: 40%;
+}
+
+.no-bottom-padding {
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.big-glyph {
+  font-size: 2em;
 }
