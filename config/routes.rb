@@ -1,5 +1,9 @@
 Betastore::Application.routes.draw do
 
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
+
+  root :to => 'products#index'
   get '/welcome' => 'static_pages#welcome'
 
   namespace :admin do

@@ -4,8 +4,10 @@ ruby '2.1.1'
 
 gem 'annotate', ">=2.6.0"
 gem 'bcrypt-ruby', '~> 3.1.5'
+gem 'braintree'
 gem 'bugsnag'
 gem 'coffee-rails', '~> 4.0.0'
+gem 'httparty'
 gem 'jquery-rails'
 gem 'pg'
 gem 'progressbar', "~> 0.21.0"
@@ -13,6 +15,8 @@ gem 'puma'
 gem 'rails', '4.1.0'
 gem 'rails-assets-bootstrap'
 gem 'sass-rails', '~> 4.0.0'
+gem 'sidekiq'
+gem 'sinatra', '>= 1.3.0', :require => nil
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
 

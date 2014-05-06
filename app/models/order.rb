@@ -22,6 +22,7 @@ class Order < ActiveRecord::Base
   validates_presence_of :customer_id, :credit_card
   validate :credit_card_belongs_to_customer
 
+  after_create :charge
 
   def credit_card_belongs_to_customer
     if customer_id && credit_card_id
@@ -66,4 +67,7 @@ class Order < ActiveRecord::Base
     group(:customer_id).sum(:total_amount)
   end
 
+  def charge
+    OrderChargeWorker.perform_async(id)
+  end
 end
