@@ -14,17 +14,39 @@
 class Order < ActiveRecord::Base
 
   belongs_to :customer
-  belongs_to :credit_card
-  has_many :line_items
+  belongs_to :credit_card, inverse_of: :orders
+  has_many :line_items, inverse_of: :order
+  accepts_nested_attributes_for :credit_card
+  accepts_nested_attributes_for :line_items
 
-  validates_presence_of :customer_id, :credit_card_id
+  validates_presence_of :customer_id, :credit_card
   validate :credit_card_belongs_to_customer
+
 
   def credit_card_belongs_to_customer
     if customer_id && credit_card_id
       unless customer_id == credit_card.customer_id
         errors.add(:credit_card_id, "does not belong to this customer")
       end
+    end
+  end
+
+  def self.from_cart(cart)
+    order = new
+    cart.each do |product_id, quantity|
+      order.line_items.build(
+        product_id: product_id,
+        quantity: quantity
+      )
+    end
+    order.calculate_totals
+    order
+  end
+
+  def calculate_totals
+    self.total_amount = line_items.inject(0) do |total, li|
+      li.set_price
+      total += li.subtotal
     end
   end
 
