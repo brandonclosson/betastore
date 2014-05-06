@@ -1,0 +1,23 @@
+<div class="row">
+  <% unless session[:cart].nil? || session[:cart].empty? %>
+    <div class="container col-md-8 col-md-offset-2 text-center">
+      <%= render 'orders/order' %>
+      <div class="row">
+        <div class="col-md-3 text-left">
+          <%= link_to "Update Cart", '#TODO', class: 'btn btn-large btn-primary' %>
+        </div>
+        <div class="col-md-6 text-center">
+          <%= link_to "Continue Shopping", products_path, class: 'btn btn-large btn-warning' %>
+        </div>
+        <div class="col-md-3 text-right">
+          <%= link_to "Check Out", new_order_path, class: 'btn btn-large btn-success' %>
+        </div>
+      </div>
+    </div>
+  <% else %>
+    <div class="col-md-6 col-md-offset-3 text-center alert alert-warning">
+      <em>There are no items in your cart!<%= @cart %></em><br />
+      <%= link_to "Go back", products_path, class: 'alert-link' %> and continue shopping.
+    </div>
+  <% end %>
+</div>
