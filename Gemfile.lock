@@ -235,6 +235,7 @@ DEPENDENCIES
   rails (= 4.1.0)
   rails-assets-bootstrap
   rails_12factor
+  redis
   sass-rails (~> 4.0.0)
   selenium-webdriver (= 2.35.1)
   sidekiq

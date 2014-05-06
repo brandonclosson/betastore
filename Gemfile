@@ -14,6 +14,7 @@ gem 'progressbar', "~> 0.21.0"
 gem 'puma'
 gem 'rails', '4.1.0'
 gem 'rails-assets-bootstrap'
+gem 'redis'
 gem 'sass-rails', '~> 4.0.0'
 gem 'sidekiq'
 gem 'sinatra', '>= 1.3.0', :require => nil
