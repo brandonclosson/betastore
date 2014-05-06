@@ -12,5 +12,7 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 brandon:
-  name: Brandon
+  first_name: Brandon
+  last_name: Closson
   email: bclosson@gmail.com
+  password_digest: <%= BCrypt::Password.create('iBrandon3') %>

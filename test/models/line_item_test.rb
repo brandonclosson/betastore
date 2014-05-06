@@ -30,15 +30,6 @@ class LineItemTest < ActiveSupport::TestCase
       line_item.errors[:quantity]
   end
 
-  test "it should fail without order_id" do
-    line_item = LineItem.new(
-      product: products(:hat),
-      quantity: 1)
-    refute line_item.save
-    assert_equal ['can\'t be blank'],
-      line_item.errors[:order_id]
-  end
-
   test "it should fail without product_id" do
     line_item = LineItem.new(
       order: orders(:cheap),

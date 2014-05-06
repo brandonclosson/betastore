@@ -8,13 +8,5 @@ class OrderTest < ActiveSupport::TestCase
     assert order.save,
       order.errors.full_messages.join(', ')
   end
-
-  test "it should not save without credit card" do
-    order = customers(:brandon).orders.build
-    refute order.save
-    assert_equal ['can\'t be blank'],
-      order.errors[:credit_card_id]
-  end
-  
 end
 
