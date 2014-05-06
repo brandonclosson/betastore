@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+source 'https://rails-assets.org'
 ruby '2.1.1'
 
 gem 'annotate', ">=2.6.0"
@@ -10,6 +11,7 @@ gem 'pg'
 gem 'progressbar', "~> 0.21.0"
 gem 'puma'
 gem 'rails', '4.1.0'
+gem 'rails-assets-bootstrap'
 gem 'sass-rails', '~> 4.0.0'
 gem 'turbolinks'
 gem 'uglifier', '>= 1.3.0'
@@ -18,14 +20,14 @@ group :development do
   gem 'brakeman', require: false
   gem 'faker'
   gem 'hirb'
-end 
+end
 
 group :test do
   gem 'capybara'
   gem 'factory_girl_rails', '4.2.1'
   gem 'growl', '1.0.3'
   gem 'launchy'
-  gem 'minitest-colorize'
+  gem 'minitest'
   gem 'selenium-webdriver', '2.35.1'
 end
 
