@@ -1,0 +1,40 @@
+<%= form_for @order, html: { class: 'form form-horizontal', role: 'form' } do |f| %>
+    <div class="panel-group" id="accordion">
+      <div class="panel panel-default panel-cart">
+        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+              Step 1: Confirm Order
+            </a>
+          </h4>
+        </div>
+        <div id="collapseOne" class="panel-collapse collapse in">
+          <div class="panel-body">
+            <div class="col-md-10 col-md-offset-1 text-center">
+              <%= render 'order_li_fields', f: f %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default panel-cart">
+        <div class="panel-heading" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+          <h4 class="panel-title">
+            <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+              Step 2: Payment Information
+            </a>
+          </h4>
+        </div>
+        <div id="collapseTwo" class="panel-collapse collapse">
+          <div class="panel-body">
+            <h3>Enter Credit Card Information</h3>
+            <div class="col-md-6 col-md-offset-1">
+              <%= render 'order_cc_fields', f: f %>
+              <div class="form-group text-right">
+                <button type="submit" class="btn btn-success">Place Order</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>

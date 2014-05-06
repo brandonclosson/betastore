@@ -1,0 +1,10 @@
+<%= f.fields_for :credit_card, @order.credit_card do |cc| %>
+  <div class="form-group">
+    <%= cc.label :card_number, 'Card Number: ', class: 'control-label' %>
+    <%= cc.text_field :card_number, size: 16, maxlength: 16, class: 'form-control' %>
+  </div>
+  <div class="form-group">
+    <%= cc.label :expiration_date, 'Expiration Date: ', class: 'control-label' %>
+    <%= cc.text_field :expiration_date, size: 7, maxlength: 7, class: 'form-control', placeholder: 'mm/yyyy' %>
+  </div>
+<% end %>
