@@ -11,7 +11,7 @@
 
 class Customer < ActiveRecord::Base
   has_many :orders
-  has_many :credit_cards
+  has_many :credit_cards, inverse_of: :customer
   has_secure_password
   before_save { email.downcase! }
   before_create :create_remember_token
@@ -24,6 +24,8 @@ class Customer < ActiveRecord::Base
                     uniqueness: { case_sensitive: false }
   validates :password, length: { minimum: 8 }
 
+  accepts_nested_attributes_for :credit_cards
+
   def self.verify(token)
     customer_id = Rails.application.message_verifier('customer').verify(token)
     customer = Customer.find(customer_id)
@@ -33,16 +35,16 @@ class Customer < ActiveRecord::Base
     logger.error "Could not verify user: #{ex.class} #{ex.message}"
   end
 
-  def send_verification_email
-    CustomerMailer.welcome(self).deliver
-  end
-
-  def self.new_remember_token
+  def Customer.new_remember_token
     SecureRandom.urlsafe_base64
   end
 
-  def self.digest(token)
+  def Customer.encrypt(token)
     Digest::SHA1.hexdigest(token.to_s)
+  end
+
+  def send_verification_email
+    CustomerMailer.welcome(self).deliver
   end
 
   def full_name
@@ -52,6 +54,6 @@ class Customer < ActiveRecord::Base
   protected
 
     def create_remember_token
-      self.remember_token = Customer.digest(Customer.new_remember_token)
+      self.remember_token = Customer.encrypt(Customer.new_remember_token)
     end
 end

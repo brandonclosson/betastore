@@ -11,9 +11,10 @@
 #
 
 class CreditCard < ActiveRecord::Base
-  belongs_to :customer
+  belongs_to :customer, inverse_of: :credit_cards
+  has_many :orders, inverse_of: :credit_card
 
-  validates_presence_of :customer_id, :card_number, :expiration_date
+  validates_presence_of :customer_id, :card_number
   validates :card_number, format: { with: /\A\d{15,16}\z/, allow_blank: true }
   validate :validate_expiration_date
 
@@ -30,5 +31,16 @@ class CreditCard < ActiveRecord::Base
       errors.add(:expiration_date, 'has expired')
     end
   end
-  
+
+  def last_four
+    "**************#{self.card_number.split('')[-4..-1].join('')}"
+  end
+
+  def expiration_month
+    self.expiration_date.split('/').first
+  end
+
+  def expiration_year
+    self.expiration_date.split('/').last
+  end
 end
