@@ -12,3 +12,5 @@ Product.create!(name: 'iPhone Case', price: 9.99, image_url: "products/iphone_ca
 Product.create!(name: 'Journal', price: 11.99, image_url: "products/journal.jpg")
 Product.create!(name: 'Shirt', price: 15.99, image_url: "products/shirt.jpg")
 Product.create!(name: 'Sticker', price: 2.99, image_url: "products/sticker.jpg")
+
+User.create!(email: 'bclosson@gmail.com', password: 'abcdefgh', password_confirmation: 'abcdefgh')
